@@ -53,20 +53,3 @@ RUN code-server --install-extension DEVSENSE.phptools-vscode --user-data-dir /da
     code-server --install-extension ms-python.python --user-data-dir /data && \
     code-server --install-extension GitHub.copilot --user-data-dir /data && \
     code-server --install-extension junstyle.php-cs-fixer --user-data-dir /data || true
-
-# Install sudo
-RUN apt-get install -y sudo
-
-# Create a user
-RUN useradd -m user
-
-# Make user sudo
-RUN sudo usermod -aG sudo user
-
-# Make that user doesn't require password to sudo
-RUN echo "user ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/user
-
-# Set the user to not be "user"
-USER user
-
-WORKDIR /home/user

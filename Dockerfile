@@ -53,3 +53,7 @@ RUN code-server --install-extension DEVSENSE.phptools-vscode --user-data-dir /da
     code-server --install-extension ms-python.python --user-data-dir /data && \
     code-server --install-extension GitHub.copilot --user-data-dir /data && \
     code-server --install-extension junstyle.php-cs-fixer --user-data-dir /data || true
+
+# Set the user to root
+USER root
+    
